@@ -1198,7 +1198,7 @@ def compute_predictions(example):
   summary = ScoreSummary()
 
   if predictions:
-    score, summary, start_span, end_span = sorted(predictions, reverse=True)[0]
+    score, summary, start_span, end_span = sorted(predictions, reverse=True, key=lambda x: x[0])[0]
     short_span = Span(start_span, end_span)
     for c in example.candidates:
       start = short_span.start_token_idx
